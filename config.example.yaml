@@ -1,0 +1,46 @@
+# RepoHerald Configuration
+# Copy this file to ~/.repoherald/config.yaml and fill in your credentials.
+
+# ─── LLM Provider Settings ───────────────────────────────────────────────────
+llm:
+  # Which provider to use: openai | claude | gemini | ollama
+  provider: openai
+
+  openai:
+    api_key: "your-openai-api-key"
+    model: "gpt-4o"
+
+  claude:
+    api_key: "your-anthropic-api-key"
+    model: "claude-sonnet-4-20250514"
+
+  gemini:
+    api_key: "your-google-ai-api-key"
+    model: "gemini-2.0-flash"
+
+  ollama:
+    host: "http://localhost:11434"
+    model: "llama3.2"
+
+# ─── Reddit Settings ─────────────────────────────────────────────────────────
+# To create a Reddit app:
+#   1. Go to https://www.reddit.com/prefs/apps
+#   2. Click "create another app..."
+#   3. Select "script" type (or "web app" for OAuth flow)
+#   4. Set redirect URI to http://localhost:8080
+#   5. Copy the client_id (under the app name) and client_secret
+reddit:
+  client_id: "your-reddit-client-id"
+  client_secret: "your-reddit-client-secret"
+  redirect_uri: "http://localhost:8080"
+  user_agent: "RepoHerald/0.1.0"
+
+# ─── GitHub Settings (Optional) ──────────────────────────────────────────────
+# Only needed for private repos or to avoid rate limits (60 req/hr without token)
+github:
+  token: ""  # Personal access token (optional)
+
+# ─── Posting Settings ────────────────────────────────────────────────────────
+posting:
+  delay_between_posts: 10  # Seconds between posts (Reddit rate limiting)
+  post_type: "self"        # "self" for text posts, "link" for link posts
